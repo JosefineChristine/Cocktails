@@ -6,5 +6,13 @@
 </head>
 <body>
 
+<h1>Cocktail list</h1>
+
+<form action="/search" method="get">
+    <label for="ingredient">Search by ingredient:</label>
+    <input type="text" id="ingredient" name="ingredient" placeholder="Enter ingredient"
+           th: value="${ingredient != null} ? $ingredient} : ''"> <button type="submit">Search</button>
+</form>
+
 </body>
 </html>

@@ -20,8 +20,8 @@ public class CocktailService {
         return cocktailRepository.getAllCocktails();
     }
 
-    public Cocktail viewCocktailRecipe(String name) {
-        return cocktailRepository.viewCocktailRecipe(name);
+    public Cocktail getCocktailRecipe(String name) {
+        return cocktailRepository.getCocktailRecipe(name);
     }
 
 

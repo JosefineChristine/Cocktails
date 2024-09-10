@@ -29,11 +29,10 @@ public class CocktailController {
 
     @GetMapping("/cocktailrecipe")
     public String viewCocktailRecipe(@RequestParam("name") String name, Model model){
-        Cocktail cocktail = cocktailService.viewCocktailRecipe(name);
+        Cocktail cocktail = cocktailService.getCocktailRecipe(name);
         model.addAttribute("cocktail", cocktail);
         return "cocktail-detail";
     }
-
 
 
 }

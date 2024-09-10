@@ -33,10 +33,9 @@ public class CocktailRepository {
         return cocktails;
     }
 
-
-    public Cocktail viewCocktailRecipe(String name){
+    public Cocktail getCocktailRecipe(String name){
         for (Cocktail cocktail : cocktails){
-            if (cocktail.getName().equals(name)){
+            if (cocktail.getName().equalsIgnoreCase(name)){
                 return cocktail;
             }
         }
