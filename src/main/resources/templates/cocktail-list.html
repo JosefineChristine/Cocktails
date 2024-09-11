@@ -1,22 +1,26 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
     <title>Cocktail List</title>
     <link rel="stylesheet" th:href="@{/css/main.css}">
 </head>
 <body>
 
 <h1>Cocktail list</h1>
-<ul>
-    <li th:each="recipe : ${recipes}">
-        <a th:href="@{'/recipe?name=' + ${recipe.name}}" th:text="${recipe.name}"></a>
-    </li>
-</ul>
-<form action="/search" method="get">
+
+<form action="/cocktails/search" method="get">
     <label for="ingredient">Search by ingredient:</label>
     <input type="text" id="ingredient" name="ingredient" placeholder="Enter ingredient"
-           th: value="${ingredient != null} ? $ingredient} : ''"> <button type="submit">Search</button>
+           th:value="${ingredient != null} ? ${ingredient} : ''">
+    <button type="submit">Search</button>
 </form>
+
+<ul>
+    <li th:each="cocktail : ${cocktails}">
+        <a th:href="@{'cocktail?name=' + ${cocktail.getName()}}" th:text="${cocktail.getName()}"></a>
+    </li>
+</ul>
 
 </body>
 </html>

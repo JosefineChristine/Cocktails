@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
     <title>Cocktails ingredients</title>
     <link rel="stylesheet" th:href="@{/css/main.css}">
 </head>
 <body>
-    <h1 th:text="${cocktail.name}"></h1>
+    <h1 th:text="${cocktail.getName()}"></h1>
     <ul>
-        <li th:each="ingredient : ${cocktail.ingredients}">
-            <span th:if="${ingredient.allergen}" th:text="${ingredient.name}" class="allergen"></span>
-            <span th:if="${!ingredient.allergen}" th:text="${ingredient.name}"></span>
+        <li th:each="ingredient : ${cocktail.getIngredients()}">
+            <span th:if="${ingredient.isAllergen()}" th:text="${ingredient.getIngredientName()}" class="allergen"></span>
+            <span th:if="${!ingredient.isAllergen()}" th:text="${ingredient.getIngredientName()}"></span>
         </li>
     </ul>
-    <a href="/">Back to cocktail list</a>
+
+    <a href="/cocktails">Back to cocktail list</a>
 </body>
 </html>

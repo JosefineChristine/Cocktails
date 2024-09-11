@@ -1,9 +1,7 @@
 package com.example.cocktails.repository;
-
 import com.example.cocktails.model.Cocktail;
 import com.example.cocktails.model.Ingredient;
 import org.springframework.stereotype.Repository;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -23,10 +21,14 @@ public class CocktailRepository {
         Ingredient juice = new Ingredient("juice", true);
         Ingredient gingerbeer = new Ingredient("gingerbeer", false);
         Ingredient lemon = new Ingredient("lemon", false);
+        Ingredient ice = new Ingredient("ice", false);
+        Ingredient milk = new Ingredient("mælk", true);
+        Ingredient kaffelikør = new Ingredient("kaffelikør", true);
 
-        cocktails.add(new Cocktail("rom-og-cola", Arrays.asList(darkrum, cola)));
-        cocktails.add(new Cocktail("vodka-juice", Arrays.asList(vodka, juice)));
-        cocktails.add(new Cocktail("dark-and-stormy", Arrays.asList(darkrum, gingerbeer, lemon)));
+        cocktails.add(new Cocktail("Rom og cola", Arrays.asList(darkrum, cola, ice)));
+        cocktails.add(new Cocktail("Vodka juice", Arrays.asList(vodka, juice, ice)));
+        cocktails.add(new Cocktail("Dark and stormy", Arrays.asList(darkrum, gingerbeer, lemon, ice)));
+        cocktails.add(new Cocktail("White Russian", Arrays.asList(milk, kaffelikør, ice)));
     }
 
     public List<Cocktail> getAllCocktails(){
@@ -40,6 +42,19 @@ public class CocktailRepository {
             }
         }
         return null;
+    }
+
+
+    public List<Cocktail> getCocktailsByIngredient(String searchWord) {
+        ArrayList<Cocktail> cocktailsWithIngredient = new ArrayList<>();
+        for (Cocktail cocktail : cocktails) {
+            for (Ingredient ingredient : cocktail.getIngredients()){
+                if (ingredient.getIngredientName().equalsIgnoreCase(searchWord)){
+                    cocktailsWithIngredient.add(cocktail);
+                }
+            }
+        }
+        return cocktailsWithIngredient;
     }
 
 

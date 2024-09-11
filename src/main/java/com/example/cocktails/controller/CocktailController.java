@@ -1,5 +1,4 @@
 package com.example.cocktails.controller;
-
 import com.example.cocktails.model.Cocktail;
 import com.example.cocktails.service.CocktailService;
 import org.springframework.stereotype.Controller;
@@ -7,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import java.util.List;
 
 @Controller
@@ -27,12 +25,19 @@ public class CocktailController {
         return "cocktail-list";
     }
 
-    @GetMapping("/cocktailrecipe")
-    public String viewCocktailRecipe(@RequestParam("name") String name, Model model){
+    @GetMapping("/cocktail")
+    public String viewCocktail(@RequestParam("name") String name, Model model){
         Cocktail cocktail = cocktailService.getCocktailRecipe(name);
         model.addAttribute("cocktail", cocktail);
         return "cocktail-detail";
     }
 
+    @GetMapping("/search")
+    public String searchByIngredient(@RequestParam("ingredient") String ingredient, Model model) {
+        List<Cocktail> cocktails = cocktailService.getCocktailsByIngredient(ingredient);
+        model.addAttribute("cocktails", cocktails);
+//        model.addAttribute("ingredient", ingredient);
+        return "cocktail-list";
+    }
 
 }
