@@ -7,7 +7,11 @@
 <body>
 
 <h1>Cocktail list</h1>
-
+<ul>
+    <li th:each="recipe : ${recipes}">
+        <a th:href="@{'/recipe?name=' + ${recipe.name}}" th:text="${recipe.name}"></a>
+    </li>
+</ul>
 <form action="/search" method="get">
     <label for="ingredient">Search by ingredient:</label>
     <input type="text" id="ingredient" name="ingredient" placeholder="Enter ingredient"

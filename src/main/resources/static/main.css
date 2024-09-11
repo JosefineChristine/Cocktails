@@ -25,3 +25,51 @@ ul li {
     border: beige;
     border-radius: 5px;
 }
+
+ul li a {
+    text-decoration: none;
+    color: cornflowerblue;
+    font-weight: bold;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
+
+form {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkgreen;
+}
+
+a {
+    text-decoration: none;
+    color: green;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.allergen {
+    font-weight: bold;
+}
